@@ -1,0 +1,39 @@
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+.form li{
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    font-size: 100px;
+    color: #000000;
+    background: #FFFFFF;
+    text-shadow: 2px 2px 0 #bcbcbc, 4px 4px 0 #9c9c9c;
+    margin-bottom: 10%;
+}
+.numbers{
+    text-align: center;
+    background: gray;
+    color: white;
+    border: 0;
+    padding: 20px;
+    font-size: 18px;
+    border: 15px outset #A4A4A4;
+}
+
+.addition{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 50px;
+}
+
