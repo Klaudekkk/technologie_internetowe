@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>zad 18</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style18.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+    </style>
+
+</head>
+
+<body>
+<i>&larr;</i>
+<div class="container">
+    <h2>Zadanie 18</h2>
+    <p>Dodaj input i przycisk umożliwiające podanie liczby i sprawdzenie czy jest to liczba podzielna przez 3. </p>
+    <div class="content">
+        <form method="post">
+            <input type="number" id="numb" min="0" step="1" />
+            <input type="button" onclick="modulo()" value="Sprawdź!" />
+        </form>
+        <br>
+    </div>
+    <div class="result">
+        <p id="number"></p>
+    </div>
+</div>
+    <script>
+        function modulo() {
+
+            let val = document.getElementById("numb").value;
+            if (isNaN(val) || val == "") {
+                alert("Proszę podać liczbę!");
+            }else {
+                let result = val % 3;
+                if (result == 0) {
+                    document.getElementById("number").innerHTML = "Liczba jest podzielna przez 3";
+                } else {
+                    document.getElementById("number").innerHTML = "Liczba NIE jest podzielna przez 3";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
