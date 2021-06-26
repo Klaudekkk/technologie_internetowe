@@ -1,12 +1,14 @@
 * {
-    padding: 0%;
+    padding: 0px;
+    margin: 0;
     font-family: noto sans;
     background: #7a71ff;
 }
-
+a{
+    text-decoration: none!important;
+}
 i {
     margin-left: 10px;
-    margin-right: 10px;
     font-size: 60px;
     color: #d1f776;
 }
@@ -25,34 +27,110 @@ i {
     color: #d1f776;
     font-size: 100px;
     text-shadow: -5px 5px 0px #d1f776, -10px 10px 0px white, -15px 15px 0px #d1f776;
+    padding-bottom: 100px;
 }
 
 .container p {
     color: #d1f776;
-    font-size: 50px;
     margin-bottom: 20px;
     text-align: center;
+    padding-bottom: 50px;
+}
+#zad18{
+    font-size: 40px;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+#zad21 p{
+    font-size: 26px;
+    padding: 20px;
+
+}
+#zad23 p, #zad22 p {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: justify!important;
+}
+#zad20 p{
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .content {
     display: flex;
-    flex-direction: column-reverse;
+    flex-flow: row;
+}
+#content18{
+    flex-direction: column;
     justify-content: center;
     flex-flow: row;
-    margin-top: 30px;
+    font-size: 50px;
+    color: #d1f776;
+}
+#content21{
+    justify-content: center;
+    color: #d1f776;
+    font-size: 20px;
+    border: white dashed 3px;
+    margin-left: 15%;
+    margin-right: 15%;
+    padding: 50px;
+}
+#content23{
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 50px;
+    color: #7a71fd;
+    text-shadow: 2px 2px 0 #d1f776, 2px -2px 0 #d1f776,
+        -2px 2px 0 #d1f776, -2px -2px 0 #d1f776, 2px 0px 0 #d1f776,
+        0px 2px 0 #d1f776, -2px 0px 0 #d1f776, 0px -2px 0 #d1f776;
+    padding: 0;
+}
+#content23 h1{
+    margin: 0;
+    padding: 0;
+}
+#content20{
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    flex-flow: row;
+    font-size: 50px;
+    color: #d1f776;
+}
+#content22{
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    flex-flow: row;
+    font-size: 50px;
+    color: #d1f776;
+}
+#content20 input{
     margin-bottom: 30px;
 }
-
-.container input{
+.content input, #content20 input, .form input{
     text-align: center;
     background: #dcf79d;
     color: #7a71ff;
-    border: 0;
     padding: 20px;
     font-size: 22px;
     font-weight: bold;
     border: 15px outset #d1f776;
+}
 
+
+.frame p{
+    width: 30%
+}
+.submitButton{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    flex-flow: row;
+    padding-top: 4%;
 }
 #numb{
     width: 100px;
@@ -60,4 +138,8 @@ i {
 
 .result p {
     margin-top: 20px;
+    font-size: 60px;
+    text-align: center;
+    color: #d1f776;
+    width: 100px;
 }

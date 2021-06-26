@@ -11,37 +11,39 @@
 </head>
 
 <body>
-<i>&larr;</i>
+<a href="index.html"><i>&larr;</i></a>
 <div class="container">
     <h2>Zadanie 18</h2>
-    <p>Dodaj input i przycisk umożliwiające podanie liczby i sprawdzenie czy jest to liczba podzielna przez 3. </p>
-    <div class="content">
-        <form method="post">
-            <input type="number" id="numb" min="0" step="1" />
-            <input type="button" onclick="modulo()" value="Sprawdź!" />
-        </form>
-        <br>
-    </div>
-    <div class="result">
-        <p id="number"></p>
-    </div>
+    <p id="zad18">Dodaj input i przycisk umożliwiające podanie liczby i sprawdzenie czy jest to liczba podzielna przez
+        3. </p>
 </div>
-    <script>
-        function modulo() {
+<div class="content" id="content18">
+    <form method="post">
+        <input type="number" id="numb" min="0" step="1"/>
+        <input type="button" onclick="modulo()" value="Sprawdź!"/>
+    </form>
+    <br>
+</div>
+<div class="result">
+    <p id="number"></p>
+</div>
 
-            let val = document.getElementById("numb").value;
-            if (isNaN(val) || val == "") {
-                alert("Proszę podać liczbę!");
-            }else {
-                let result = val % 3;
-                if (result == 0) {
-                    document.getElementById("number").innerHTML = "Liczba jest podzielna przez 3";
-                } else {
-                    document.getElementById("number").innerHTML = "Liczba NIE jest podzielna przez 3";
-                }
+<script>
+    function modulo() {
+
+        let val = document.getElementById("numb").value;
+        if (isNaN(val) || val == "") {
+            alert("Proszę podać liczbę!");
+        } else {
+            let result = val % 3;
+            if (result == 0) {
+                document.getElementById("number").innerHTML = "Liczba jest podzielna przez 3";
+            } else {
+                document.getElementById("number").innerHTML = "Liczba NIE jest podzielna przez 3";
             }
         }
-    </script>
+    }
+</script>
 </body>
 
 </html>
