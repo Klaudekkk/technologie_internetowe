@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zad 23</title>
+    <link rel="stylesheet" href="styleKlaudia.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+    </style>
+</head>
+<body>
+    <a href="index.html" style="text-decoration: none"><i >&larr;</i></a>
+    <div class="container">
+        <h2>Zad 23</h2>
+            <p id="zad23">Napisz zegar wyświetlający bieżącą godzinę w formacie HH:mm:ss.</p>
+        </div>
+    <div class="content" id="content23">
+        <h1>Zegar</h1>
+        <br/>
+        <h2 id="result"></h2>
+    </div>
+<script>
+    function myTimer() {
+        const time = new Date();
+        document.getElementById("result").innerHTML = time.toLocaleTimeString();
+    }
+    setInterval(myTimer ,1000);
+</script>
+</body>
+</html>

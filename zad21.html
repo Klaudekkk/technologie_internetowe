@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>zad 21</title>
+    <link rel="stylesheet" href="styleKlaudia.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+    </style>
+</head>
+<body>
+    <a href="index.html" style="text-decoration: none"><i >&larr;</i></a>
+    <div class="container">
+        <h2>Zad 21</h2>
+
+            <p id="zad21">Napisz funkcję, która przyjmie jeden argument zawierające zdanie złożone z kilku słów. Następnie funkcja powinna
+                podzielić to zdanie na słowa (ignorując znaki interpunkcyjne)
+                i stworzyć tablicę słów. Tablicę tą należy wyświetlić. Następnie proszę stworzyć obiekt który wyświetli (w tagu
+                < code >) ilość słów użytych w zdaniu. Np: Ala ma kota, a kot ma Alę -> [ala, ma, kota, a, kot, ma, alę] -> {
+                ala: 1, ma: 2, kota: 1, a: 1, kot: 1, alę: 1}.</p>
+    </div>
+    <div class="content" id="content21">
+        <div id="result"></div>
+        <div id="table"></div>
+        <code id="code"></code>
+    </div>
+</body>
+<script>
+    function splitString(str) {
+        document.getElementById('result').innerHTML = `${str}&nbsp->&nbsp`;
+
+        str = str.replace(/[^a-zA-Z ]/g, "");
+        let table = str.toLowerCase().split(" ");
+
+        document.getElementById('table').innerHTML ="["+table+"] &nbsp->&nbsp";
+        let countwrd = table.reduce(function (arr, el) {
+            if (el in arr) {
+                arr[el]++;
+            } else {
+                arr[el] = 1;
+            }
+            return arr;
+        }, {});
+        countwrd = JSON.stringify(countwrd);
+        document.getElementById('code').innerHTML = countwrd;
+    }
+    splitString("Ala ma kota, a kot ma ale.");
+</script>
+</html>

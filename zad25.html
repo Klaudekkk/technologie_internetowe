@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style25.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+    </style>
+</head>
+<body>
+<a href="index.html" style="text-decoration: none"><i>&larr;</i></a>
+<div class="container" id="zad25">
+    <h2>Zad 25</h2>
+    <p> Napisz symulator dodawania pisemnego. Proszę zaprezentować obliczenia tak jakby były wykonywane na kartce. Dwie
+        liczby powinny być podawane przez użytkownika.</p>
+</div>
+<div class="content" id="content25">
+    <div class="form">
+        <form>
+            <ul>
+                <li><input type="number" id="firstNumb" class="numbers" step="1" min="0"/>
+                </li>
+                <li>+</li>
+                <li>
+                    <input type="number" id="secondNumb" class="numbers" step="1" min="0"/>
+                </li>
+                <li>
+                    <input type="button" class="numbers" value="Oblicz!" onclick="add()" style="margin-top: 30px"/>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <div class="addition">
+        <div id="firstNumbText"></div>
+        <div id="secondNumbText"></div>
+        <div id="line"></div>
+        <div id="additionResult"></div>
+    </div>
+</div>
+<script>
+    function add() {
+        //pobieranie wartości z inputów
+        let firstNumb = document.getElementById("firstNumb").value;
+        let secondNumb = document.getElementById("secondNumb").value;
+
+
+        if (isNaN(firstNumb) || firstNumb == "" || firstNumb < 0) {
+            alert("Podano złą pierwszą liczbę! wpisz liczbę dodatnią całkowitą");
+        } else if (isNaN(secondNumb) || secondNumb == "" || secondNumb < 0) {
+            alert("Podano złą drugą liczbę! wpisz liczbę dodatnią całkowitą");
+        } else {
+            //wartość z inputa przepisana do tablicy znakow
+            let firstNumberArr = firstNumb.toString().split("");
+            //odwrócenie wartosci w tablicy
+            firstNumberArr = firstNumberArr.reverse();
+            console.log(firstNumberArr);
+
+            //to samo co wyżej dla drugiegio inputa
+            let secondNumberArr = secondNumb.toString().split("");
+            secondNumberArr = secondNumberArr.reverse();
+            console.log(secondNumberArr);
+
+            let longNumberSize; //rozmiar dłuższej liczby
+            let shortNumber; //krótsza liczba
+
+            if (firstNumberArr.length < secondNumberArr.length) {
+                longNumberSize = secondNumberArr.length;
+                shortNumber = firstNumberArr;
+            } else {
+                longNumberSize = firstNumberArr.length;
+                shortNumber = secondNumberArr;
+            }
+            while (shortNumber.length != longNumberSize) {
+                shortNumber.push("0")
+            }
+
+            let addition = []; //tablica z wynikiem
+
+            for (let i = 0; i < longNumberSize; i++) {
+                let mod = 0;
+                let sum = (parseInt(firstNumberArr[i]) + parseInt(secondNumberArr[i]));
+                if (sum + mod >= 10) {
+                    addition.unshift((sum + mod - 10).toString());
+                    mod = 1;
+                } else
+                    addition.unshift((sum + mod).toString());
+                mod = 0;
+            }
+            let firstNumbText = document.getElementById("firstNumbText");
+            let secondNumbText = document.getElementById("secondNumbText");
+            firstNumbText.innerText = firstNumb;
+            secondNumbText.innerText = "+ " + secondNumb;
+
+            //linia pozioma
+            let line = document.getElementById("line");
+            line.style.borderTop = '6px solid green';
+            line.style.width = '70%';
+
+            //wynik
+            let additionResult = document.getElementById("additionResult");
+            additionResult.innerText = addition.join("");
+        }
+    }
+</script>
+</body>
+</html>
