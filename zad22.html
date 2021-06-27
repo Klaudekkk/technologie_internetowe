@@ -4,19 +4,26 @@
     <meta charset="UTF-8">
     <title>Zad 22</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-
+    <link rel="stylesheet" href="styleKlaudia.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
     </style>
+
     <style>
         .star{
             width: 15px;
             height: 15px;
+            text-align: center;
         }
         #aaa{
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 100%;
+        }
+        .col{
+            display: block;
         }
     </style>
 </head>
@@ -39,11 +46,11 @@
         </div>
     </div>
 </div>
-    <div id="aaa"></div>
+    <div id="frame"></div>
 <script>
     $(document).ready(function () {
         $("#submit").click(function () {
-            $("#aaa").empty();
+            $("#frame").empty();
             let frameWidth = $("#frameWidth").val();
             let frameHeight = $("#frameHeight").val();
             if (isNaN(frameWidth) || frameWidth == "" || frameWidth < 0 || isNaN(frameHeight) || frameHeight == "" || frameHeight < 0) {
@@ -52,14 +59,16 @@
                 alert("Proszę podać liczbę całkowitą!");
             } else {
                 for (let i = 1; i <= frameWidth; i++) {
+                    let $col = $("<div>", {"class": "col"});
                     for (let j = 1; j <= frameHeight; j++) {
                         if (i == 1 || i == frameWidth || j == 1 || j == frameHeight) {
-                            $("#aaa").append("<div class='star'>*</div>");
+                            $col.append("<div class='star'>*</div>");
                         } else {
-                            $("#aaa").append("&nbsp;&nbsp;");
+                            $col.append("<div class='star'>&nbsp;&nbsp;</div>");
                         }
                     }
-                    $("#aaa").append("<br/>");
+                    $("#frame").append($col);
+
                 }
             }
         })

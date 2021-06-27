@@ -53,3 +53,15 @@ input{
     font-weight: bold;
     border: 15px outset #d1f776;
 }
+.addition{
+    margin-top: 50px!important;
+    margin-right: 25%;
+    margin-left: 25%;
+    text-align: right;
+}
+#firstNumbText{
+    margin: auto;
+}
+#additionResult{
+    text-align: right;
+}
