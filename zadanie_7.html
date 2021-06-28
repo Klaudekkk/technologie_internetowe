@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles-jedrzej.css">
+    <title>Zadanie 7</title>
+</head>
+
+<body>
+    <a href="index.html"><i id="back">&larr;</i></a>
+    <div class="about">
+        <h2>Zadanie 7</h2>
+        <p id="paragraph">Za pomocą HTML Canvas wyświetl grafikę.</p>
+    </div>
+
+    <div class="canvas-box">
+        <canvas id="myThing" width="190" height="99" style="border:5px solid #1d4683;"></canvas>
+    </div>
+    <script type="text/javascript">
+        let c = document.getElementById("myThing");
+        let ctx = c.getContext("2d");
+        ctx.strokeStyle = 'pink';
+        ctx.beginPath();
+        ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+        ctx.stroke();
+
+        ctx.rect(95, 0, 180, 100);
+        ctx.fill();
+        ctx.stroke();
+    </script>
+</body>
+
+</html>

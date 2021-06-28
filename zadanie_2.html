@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles-jedrzej.css">
+    <title>Zadanie 2</title>
+</head>
+
+<body>
+    <a href="index.html"><i id="back">&larr;</i></a>
+
+    <div class="about">
+        <h2>Zadanie 2</h2>
+        <div id="paragraph" class="paragraph">
+            Stwórz paragraf z przykładową treścią.
+            Dodaj trzy radio butony.
+            W zależności od ustawienia pierwszy radio buton sprawia,
+            że tekst jest jednolicie czarny. Drugi&nbsp;sprawia, że
+            cały paragraf zmienia swój kolor na losowy
+            [z&nbsp;predefiniowanych&nbsp;pięciu]&nbsp;w odstępie 3 sekund.
+            Trzeci powoduje, że każda litera jest w losowym kolorze.
+        </div>
+    </div>
+
+    <div class="about">
+        <p id="experiment">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Debitis eos deserunt suscipit error
+            voluptate quas obcaecati rerum repellat possimus labore!</p>
+        <div class="radio">
+            <div>
+                <input type="radio" id="dark" name="button" value="dark" onchange="makeDark()">
+                <label class="radio-text" for="dark">Make it dark!</label>
+            </div>
+
+            <div>
+                <input type="radio" id="random" name="button" value="random" onchange="makeRandom()">
+                <label class="radio-text" for="random">Make it random!</label>
+            </div>
+
+            <div>
+                <input type="radio" id="crazy" name="button" value="crazy" onchange="makeCrazy()">
+                <label class="radio-text" for="crazy">Crazy letters!</label>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        let myLittleInterval;
+
+        function makeDark() {
+            stopInterval();
+            console.log('Dark works!');
+            $(function () {
+                $('#experiment, .return').css('color', 'black');
+            });
+        }
+
+        function stopInterval() {
+            if (document.getElementById('dark').checked) {
+                clearInterval(myLittleInterval);
+            } else if (document.getElementById('random').checked) {
+                clearInterval(myLittleInterval);
+            } else if (document.getElementById('crazy').checked) {
+                clearInterval(myLittleInterval);
+            }
+        };
+
+        function makeRandom() {
+            stopInterval();
+            myLittleInterval = setInterval(function randomizeIt() {
+                console.log('Random five works!');
+
+                $(function () {
+                    let palette = [
+                        "#0000ff",
+                        "#008000",
+                        "#ffc0cb",
+                        "#ff0000",
+                        "#800080"
+                    ];
+                    let randomize = palette[Math.floor(Math.random() * palette.length)];
+                    $('#experiment, .return').css('color', randomize);
+                });
+            }, 3000);
+        };
+
+        function makeCrazy() {
+            stopInterval();
+            console.log('Random letters!');
+            $(function () {
+                $('p').append(function () {
+                    let char = $(this).text().split("");
+                    this.innerHTML = "";
+                    $.each(char, function () {
+                        $("<span class='return'>").text(this).css({
+                            color: "#" + (Math.random() * 16777215 | 0).toString(16)
+                        }).appendTo('p');
+                    });
+                });
+            });
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles-jedrzej.css">
+    <title>Zadanie 8</title>
+</head>
+
+<body>
+    <a href="index.html"><i id="back">&larr;</i></a>
+    <div class="about">
+        <h2>Zadanie 8</h2>
+        <p id="paragraph">Przygotuj prosty kalkulator: dwa pola input plus buttony symulujące kolejno dodawanie,
+            odejmowanie, mnożenie i&nbsp;dzielenie. Dodatkowo należy przygotować
+            okienko wynik wyświetlające rezultat wybranej operacji.</p>
+    </div>
+    <form>
+        <div class="calculator-box">
+            <input type="number" class="connect" id="firstValue" placeholder="First value" />
+            <input type="number" class="connect" id="secondValue" placeholder="Second value" />
+            <input type="text" class="connect" id="result" placeholder="Result" disabled />
+        </div>
+        <br />
+        <div class="execute-box">
+            <button type="button" onclick="Operation(this.innerHTML)">Dodawanie</button>
+            <button type="button" onclick="Operation(this.innerHTML)">Odejmowanie</button>
+            <button type="button" onclick="Operation(this.innerHTML)">Mnożenie</button>
+            <button type="button" onclick="Operation(this.innerHTML)">Dzielenie</button>
+        </div>
+    </form>
+
+    <script type="text/javascript">
+        function Operation(process) {
+            let result;
+            let firstValue = document.getElementById('firstValue').value;
+            let secondValue = document.getElementById('secondValue').value;
+
+            switch (process) {
+                case 'Dodawanie':
+                    result = parseFloat(firstValue) + parseFloat(secondValue);
+                    break;
+                case 'Odejmowanie':
+                    result = parseFloat(firstValue) - parseFloat(secondValue);
+                    break;
+                case 'Mnożenie':
+                    result = parseFloat(firstValue) * parseFloat(secondValue);
+                    break;
+                case 'Dzielenie':
+                    result = parseFloat(firstValue) / parseFloat(secondValue);
+                    break;
+            }
+
+            if (firstValue == '' || secondValue == '') {
+                document.getElementById('result').value = ' <- wpisz wartości';
+                alert('Wpisz poprawną wartość!');
+            } else {
+                document.getElementById('result').value = 'WYNIK: ' + result;
+            }
+
+            /*  Gdyby input nie był typu "number", a "text"
+            if (isNaN(firstValue) || isNaN(secondValue)) {
+                alert('Wpisz poprawną wartość!');
+            }
+            */
+        }
+    </script>
+</body>
+
+</html>

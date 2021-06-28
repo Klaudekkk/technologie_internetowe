@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles-jedrzej.css">
+    <title>Zadanie 4</title>
+</head>
+
+<body>
+    <a href="index.html"><i id="back">&larr;</i></a>
+    <div class="about">
+        <h2>Zadanie 4</h2>
+        <p id="paragraph">Dodaj dwa przyciski. Pierwszy rozpocznie śledzenie 
+            kursora&nbsp;–&nbsp;pozycja będzie wyświetlana na bieżąco 
+            w&nbsp;np.&nbsp;elemencie span. Drugi przycisk zatrzyma śledzenie.</p>
+    </div>
+    <div class="content" id="my-content">
+        <button id="track" onclick="TrackIt()">TRACK IT!</button>
+        <button id="stop" onclick="StopIt()">IMMEDIATELY STOP IT!</button>
+        <div id="result"></div>
+    </div>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        let w;
+        function TrackIt() {
+            w = true;
+            let x = null;
+            let y = null;
+
+            document.addEventListener('mousemove', Update, false);
+            document.addEventListener('mouseenter', Update, false);
+
+            function PositionX() {
+                return x;
+            }
+
+            function PositionY() {
+                return y;
+            }
+        }
+
+        function StopIt() {
+            console.log('You stopped tracking.');
+            w = false;
+        }
+
+        function Update(e) {
+
+            if (w) {
+                x = e.pageX;
+                y = e.pageY;
+                $("span").remove();
+                $("#result").append("<span>" + x + ', ' + y + "</span>");
+                console.log(x, y);
+            } else {
+                $("span").remove();
+                $("#result").append("<span>Tracking has stopped!</span>");
+            }
+        }
+    </script>
+</body>
+
+</html>
