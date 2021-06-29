@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zad 22</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="styleKlaudia.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+    </style>
+
+    <style>
+        .star{
+            width: 15px;
+            height: 15px;
+            text-align: center;
+        }
+        #aaa{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        .col{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<a href="index.html"><i>&larr;</i></a>
+<div class="container" id="zad22">
+    <h2>Zad 22</h2>
+    <p> Dodaj możliwość rysowania ramki z gwiazdek. W dwóch polach input powinna być możliwość dodania wartości
+        definiujących ilość gwiazdek na szerokość i na wysokość. Ramka powinna rysować się w < div>.
+    </p>
+</div>
+<div class="content" id="content22">
+    <div class="form">
+        <label>Szerokość:</label>
+        <input type="number" min="0" step="1" id="frameWidth"/>
+        <label>Wysokość:</label>
+        <input type="number" min="0" step="1" id="frameHeight"/>
+        <div class="submitButton">
+            <input type="button" id="submit" value="Rysuj!"/>
+        </div>
+    </div>
+</div>
+    <div id="frame"></div>
+<script>
+    $(document).ready(function () {
+        $("#submit").click(function () {
+            $("#frame").empty();
+            let frameWidth = $("#frameWidth").val();
+            let frameHeight = $("#frameHeight").val();
+            if (isNaN(frameWidth) || frameWidth == "" || frameWidth < 0 || isNaN(frameHeight) || frameHeight == "" || frameHeight < 0) {
+                alert("Proszę podać liczbę!");
+            } else if (/([.,])/.test(frameWidth) || /([.,])/.test(frameHeight)) {
+                alert("Proszę podać liczbę całkowitą!");
+            } else {
+                for (let i = 1; i <= frameWidth; i++) {
+                    let $col = $("<div>", {"class": "col"});
+                    for (let j = 1; j <= frameHeight; j++) {
+                        if (i == 1 || i == frameWidth || j == 1 || j == frameHeight) {
+                            $col.append("<div class='star'>*</div>");
+                        } else {
+                            $col.append("<div class='star'>&nbsp;&nbsp;</div>");
+                        }
+                    }
+                    $("#frame").append($col);
+
+                }
+            }
+        })
+    });
+
+
+</script>
+</body>
+</html>
