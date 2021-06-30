@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="zadania.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      
+      const checkInput = (number) => {
+          let pattern = new RegExp('^[0-9#]+$');
+          if(pattern.test(number) == false) return false;
+          else return true;
+        }
+      
+      $(document).ready(function () {
+        $("button").click(function (e) {
+          e.preventDefault();
+          let number = $("#inputNumber").val();
+          if (checkInput(number) == false) {
+            alert("Zla liczba!");
+            return false;
+          } else {
+            number = Number(number);
+            let i = 1;
+            let s = 1;
+            while (i <= number) s *= i++;
+            alert(number + "! = " + s);
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+       <a href="index.html" style="text-decoration: none"><i >&larr;</i></a>
+    <div class="container">
+      <h2>Zadanie 12</h2>
+      <p>
+        Przygotuj prosty kalkulator silni. W polu input podana zostaje wartość
+        numeryczna. Następnie po kliknięciu przycisku, w alercie pokazuje się
+        wynik. Przygotuj obsługę błędów.
+      </p>
+      <div class="content">
+        
+        <form>
+          <input
+            type="number"
+            id="inputNumber"
+            placeholder="Wpisz cyfre"
+          />
+          <button id="btn">Oblicz!</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

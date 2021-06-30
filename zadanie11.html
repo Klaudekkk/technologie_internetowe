@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="zadania.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("button").click(function (e) {
+          e.preventDefault();
+          $(".result").remove();
+          let generatedNumbers = [];
+          for (let i = 0; i < 10; i++) {
+            generatedNumbers[i] = Math.floor(Math.random() * (1000 - 0)) + 0;
+          }
+          
+          let steps = 0;
+
+          for (let i = 0; i < generatedNumbers.length; i++) {
+            for (let j = 0; j < generatedNumbers.length - i - 1; j++) {
+              if (generatedNumbers[j] > generatedNumbers[j + 1]) {
+               steps++;
+                const temp = generatedNumbers[j + 1];
+                generatedNumbers[j + 1] = generatedNumbers[j];
+                generatedNumbers[j] = temp;
+                $("#result").append(
+                 "<p class='result'> "+"Krok nr:"+steps+"</p>",  
+                "<p class='result'> "+ generatedNumbers + "</p>"
+                );
+              }
+            }
+            
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <a href="index.html" style="text-decoration: none"><i>&larr;</i></a>
+    <div class="container">
+      <h2>Zadanie 11</h2>
+      <p>
+        Przygotuj symulator sortowania bąbelkowego. W tym celu dodaj przycisk
+        „symuluj”, który to przygotuje tablicę losowych liczb z zakresu 0 – 1000
+        o długości 10. Następnie poniżej powinny zostać wyświetlone wszystkie
+        kroki jakie algorytm sortowania bąbelkowego wykona (w postaci ciągu
+        liczb oddzielonych przecinkiem).
+      </p>
+      <form>
+        <button>Symuluj!</button>
+      </form>
+        <div class="content">
+          <div id="result"></div>
+      </div>
+    </div>
+  </body>
+</html>

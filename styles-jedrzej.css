@@ -1,0 +1,268 @@
+/* Style główne */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0;
+    font-family: noto sans;
+    background: #badef2;
+}
+
+
+.about {
+    margin-left: 260px !important;
+    margin-right: 220px !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-around;
+}
+
+.about h2 {
+    text-align: center;
+    color: #009d85;
+    font-size: 100px;
+    text-shadow: -5px 5px 0px #009d85, -10px 10px 0px white, -15px 15px 0px #009d85;
+    padding-bottom: 100px;
+}
+
+.about p {
+    color: #009d85;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.content {
+    display: flex;
+    flex-flow: row;
+}
+
+#my-content {
+    flex-direction: column;
+    justify-content: center;
+    flex-flow: row;
+    font-size: 50px;
+    color: #009d85;
+}
+
+#paragraph {
+    font-size: 40px;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+i {
+    margin-left: 10px;
+    font-size: 60px;
+    color: #009d85;
+    
+}
+
+#back:hover {
+    cursor: pointer;
+    color: #06b399;
+    transition: 0.5s;
+}
+
+.content input,
+.form input,
+button {
+    text-align: center;
+    background: #009d85;
+    color: #badef2;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    border: 15px outset #009d85;
+}
+
+button:hover {
+    cursor: pointer;
+    color: #046859;
+    background: #02af95;
+    border: 15px outset #02af95;
+    transition: 0.7s;
+}
+
+button {
+    margin: 0.5em 0.5em 0.5em 0.5em;
+}
+
+/* Zadanie 2 */
+
+#experiment {
+    font-size: 25px;
+    text-align: center;
+    padding: 20px;
+}
+
+.paragraph {
+    color: #009d85;
+    margin-bottom: 20px;
+    text-align: center;
+    padding-bottom: 50px;
+    font-size: 25px !important;
+}
+
+.radio-text {
+    font-size: 20px;
+    margin-right: 1em;
+}
+
+.radio-text:hover {
+    color: #009d85;
+    transition: 0.5s;
+}
+
+.radio {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+/* Zadanie 3 */
+
+#medium-paragraph {
+    font-size: 30px;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+
+input[type="text"] {
+    background-color: #009d85;
+    color: white;
+    text-align: center;
+}
+
+::placeholder {
+    color: #badef2;
+    padding-left: 0.5em;
+}
+
+input[type="submit"] {
+    text-align: center;
+    background: #009d85;
+    color: #badef2;
+    padding: 5px;
+    font-size: 22px;
+    font-weight: bold;
+    border: 15px outset #009d85;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+    color: #046859;
+    background: #02af95;
+    border: 15px outset #02af95;
+    transition: 0.7s;
+}
+
+.input-box {
+    display: flex;
+    flex-flow: row;
+    flex-direction: column;
+    justify-content: center;
+    flex-flow: row;
+    font-size: 50px;
+    color: #009d85;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+input.connect {
+    font-size: 22px;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+/* Zadanie 4 */
+
+#result {
+    display: flex;
+    align-items: center;
+}
+
+/* Zadanie 5 */
+
+.video {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Zadanie 6 */
+
+.svg-box {
+    text-align: center;
+}
+
+/* Zadanie 7 */
+
+.canvas-box {
+    text-align: center;
+}
+
+/* Zadanie 8 */
+
+.calculator-box {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+.execute-box {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+}
+
+input[type="number"] {
+    background-color: #009d85;
+    color: white;
+    text-align: center;
+}
+
+/* Zadanie 9 */
+
+#little-paragraph {
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+}
+
+button[type="submit"] {
+    text-align: center;
+    background: #009d85;
+    color: #badef2;
+    padding: 5px;
+    font-size: 22px;
+    font-weight: bold;
+    border: 15px outset #009d85;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+button[type="submit"]:hover {
+    cursor: pointer;
+    color: #046859;
+    background: #02af95;
+    border: 15px outset #02af95;
+    transition: 0.7s;
+}
+
+.canvas-result {
+    margin: 2em 1em 1em 2em;
+    display: flex;
+    justify-content: center;
+}

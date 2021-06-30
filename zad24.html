@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>zad 24</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styleKlaudia.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+    </style>
+</head>
+<body>
+<a href="index.html" style="text-decoration: none"><i>&larr;</i></a>
+<div class="container" id="zad20">
+    <h2>Zadanie 24</h2>
+    <p>Napisz funkcję wyświetlającą ile dni minęło między dwoma wybranymi datami.
+        Użyj < input type="date" …>. Pamiętaj o blokowaniu niepożądanych dat. </p>
+</div>
+    <div class="content" id="content20">
+        <div>
+            <form>
+                <label>Od:</label>
+                <input type="date" name="from" id="from"/>
+                <label>Do:</label>
+                <input type="date" name="to" id="to"/>
+                </br>
+                <input type="button" value="Oblicz" onclick="funkcja()">
+            </form>
+            <div class="result">
+                <p id="result"></p>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+    function funkcja() {
+        let date1 = new Date(document.getElementById('from').value);
+        let date2 = new Date(document.getElementById('to').value);
+        if (date1 > date2) {
+            alert("Pierwsza data musi być mniejsza od drugiej!");
+        } else if (isNaN(date1) || date1 == "" || isNaN(date2) || date2 == "") {
+            alert("nie wybrano daty!");
+        } else {
+            let res = date2.getTime() - date1.getTime();
+            let result = (res / (1000 * 3600 * 24));
+            if (res == 0) {
+                document.getElementById('result').innerHTML = "To ten sam dzień!";
+            } else {
+                document.getElementById('result').innerHTML = "Pomiędzy datami minęło " + result + " dni.";
+            }
+        }
+    }
+</script>
+</body>
+</html>

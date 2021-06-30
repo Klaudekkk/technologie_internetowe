@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles-jedrzej.css">
+    <title>Zadanie 3</title>
+</head>
+
+<body>
+    <a href="index.html"><i id="back">&larr;</i></a>
+    <div class="about">
+        <h2>Zadanie 3</h2>
+        <p id="medium-paragraph">Przygotuj trzy pola input.
+            Następnie dodaj przycisk, który wywoła funkcję łączącą ich wartości
+            w jedno słowo. Odpowiedź ma być wyświetlona w alercie
+            [interpolacja,&nbsp;należy&nbsp;użyć&nbsp;onsubmit].</p>
+    </div>
+    <form onsubmit="Sticky()">
+        <div class="input-box">
+            <input type="text" id="message1" class="connect" value="" placeholder="Type something">
+            <input type="text" id="message2" class="connect" value="" placeholder="Type something">
+            <input type="text" id="message3" class="connect" value="" placeholder="Type something">
+
+            <input type="submit">
+        </div>
+    </form>
+
+
+    <script type="text/javascript">
+
+        function Sticky() {
+
+            let message1 = document.getElementById("message1").value;
+            let message2 = document.getElementById("message2").value;
+            let message3 = document.getElementById("message3").value;
+
+            let all = `${message1}${message2}${message3}`;
+
+            alert(all);
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="zadania.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      let numbers = [];
+
+      const addNumber = (number) => {
+        if (number === "" || ".,".includes(number)) {
+          alert("Została podana zła wartość!");
+          return false;
+        }
+
+        clearResult();
+        numbers.push(number);
+        $("ol").append("<li>" + number + "</li>");
+      };
+
+      const clearResult = () => {
+        $(".result").remove();
+      };
+
+      const showAverage = () => {
+        if (numbers.length === 0) {
+          alert("Tablica jest pusta!");
+          return false;
+        }
+
+        let parseArr = [];
+        let sum = 0;
+
+        for (let i = 0; i < numbers.length; i++) {
+          parseArr.push(parseFloat(numbers[i]));
+          sum += parseArr[i];
+        }
+
+        sum = sum / parseArr.length;
+        console.log(parseArr.length);
+        $(".function-result").append("<p class='result'>" + "Wynik: " + sum + "</p>");
+      };
+
+      const showSum = () => {
+        if (numbers.length === 0) {
+          alert("Tablica jest pusta!");
+          return false;
+        }
+
+        let parseArr = [];
+        let sum = 0;
+
+        for (let i = 0; i < numbers.length; i++) {
+          parseArr.push(parseFloat(numbers[i]));
+          sum += parseArr[i];
+        }
+
+        $(".function-result").append("<p class='result'>" + "Wynik: " + sum + "</p>");
+      };
+
+      $(document).ready(function () {
+        $("#add").click(function (e) {
+          e.preventDefault();
+
+          let number = $("#number").val();
+          addNumber(number);
+        });
+
+        $("#average").click(function (e) {
+          e.preventDefault();
+          clearResult();
+          showAverage();
+        });
+
+        $("#sum").click(function (e) {
+          e.preventDefault();
+          clearResult();
+          showSum();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <a href="index.html" style="text-decoration: none"><i>&larr;</i></a>
+    <div class="container">
+      <h2>Zadanie 16</h2>
+      <p>
+        Dodaj pole input i trzy przyciski „dodaj”, „suma” i „średnia”.
+        Kliknięcie w przycisk powinno dodawać wartość wpisaną w polu input do
+        listy (wyświetlanej obok przycisku). Przycisk „suma” powinien wywołać
+        funkcję sumującą dodane wartości. Przycisk „średnia” natomiast powinien
+        uruchomić funkcję liczącą średnią z podanych wartości.
+      </p>
+      <div class="function-result"></div>
+      <div class="content">
+        <form>
+          <input type="number" id="number" placeholder="Podaj liczbe" />
+          <button id="sum">Suma</button>
+          <button id="average">Srednia</button>
+        </form>
+      </div>
+      <div class="button-content">
+        <button id="add">Dodaj</button>
+        <div class="ordered-list">
+          <ol></ol>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

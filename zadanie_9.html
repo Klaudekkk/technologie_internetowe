@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles-jedrzej.css">
+    <title>Zadanie 9</title>
+</head>
+
+<body>
+    <a href="index.html"><i id="back">&larr;</i></a>
+    <div class="about">
+        <h2>Zadanie 9</h2>
+        <p id="little-paragraph">Dodaj pole input, w&nbsp;którym wpisywany będzie promień koła.
+            W&nbsp;polu tym powinno być możliwe jedynie wpisanie wartości
+            numerycznych dodatnich, gdzie maksymalna wartość to 100.
+            Wpisanie błędnych wartości wyświetli błąd. Dodaj przycisk,
+            który po kliknięciu [na&nbsp;podstawie&nbsp;wpisanej&nbsp;wartości] wyświetli
+            koło o&nbsp;zadanym promieniu. </p>
+    </div>
+    <div class="input-box">
+        <input type="number" class="connect" id="radius" placeholder="Promień koła">
+    </div>
+    <br/>
+    <div class="input-box">
+        <button type="submit" id="count" onclick="Circle()">Wygeneruj</button>
+    </div>
+    <div id="result" class="canvas-result">
+        <canvas id="circle" width="370" height="370"></canvas>
+    </div>
+    <script type="text/javascript">
+        function Circle() {
+            let x = parseFloat(document.getElementById('radius').value);
+
+            if (x <= 0 || x % 1 !== 0 || x > 100) {
+                alert('Pick a value between 1 and 100!');
+            } else {
+                let c = document.getElementById("circle");
+                let ctx = c.getContext("2d");
+                ctx.clearRect(0, 0, c.width, c.height);
+                ctx.beginPath();
+                ctx.arc(180, 110, x, 0, 10 * Math.PI);
+                ctx.strokeStyle = "black";
+                ctx.stroke();
+            }
+        }
+    </script>
+</body>
+
+</html>

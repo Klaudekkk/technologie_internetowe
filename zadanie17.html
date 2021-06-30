@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="zadania.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      
+      const closeModal = () => {
+        $("#myModal").css({ display: "none" });
+      };
+      const openModal = () => {
+        $("#myModal").css({ display: "block" });
+      };
+      const addModalContent = (id) => {
+        $(".modal-content").append(
+          "<p id='modal-text'>" + textTransformation(id) + "</p>"
+        );
+      };
+
+      const removeModalContent = () => {
+        $("#modal-text").remove();
+      };
+
+     
+      
+      function textTransformation(option) {
+        let text = $("#textInput").val();
+      
+        if(text.length < 4) {
+          return "Zla wartosc";
+        }
+
+        switch (option) {
+          case 1:
+            let threeChars = "";
+            threeChars += text.slice(0, 3);
+            console.log(threeChars);
+            return threeChars;
+            break;
+
+          case 2:
+            return text[text.length - 2];
+            break;
+
+          case 3:
+            let last = "";
+            for (i = text.length - 1; i > text.length - 5; i--) {
+              last += text[i];
+            }
+            return last.split("").reverse().join("");
+            break;
+
+          case 4:
+            return text.toLowerCase();
+            break;
+
+          case 5:
+            return text.toUpperCase();
+            break;
+
+          case 6:
+            let lastCharIsBig = false;
+            let strArr = text.split("");
+            let str = "";
+            while (true) {
+              for (let i = 0; i < strArr.length; i++) {
+                if (
+                  strArr[i] === "," ||
+                  strArr[i] === "?" ||
+                  strArr[i] === "!" ||
+                  strArr[i] === "." ||
+                  strArr[i] === " "
+                ) {
+                  str += strArr[i];
+                  continue;
+                }
+                if (lastCharIsBig) {
+                  str += strArr[i].toLowerCase();
+                  lastCharIsBig = false;
+                } else {
+                  str += strArr[i].toUpperCase();
+                  lastCharIsBig = true;
+                }
+              }
+              break;
+            }
+            return str;
+            break;
+
+          case 7:
+            return text.split(" ").join("");
+            break;
+          case 8:
+            let replaced = "";
+            for (let i = 0; i < text.length; i++) {
+              if (!"aąeęiouyó".includes(text[i].toLowerCase())) {
+                replaced += text[i];
+              }
+            }
+            return replaced;
+            break;
+
+          case 9:
+            return text.split("").reverse().join("");
+            break;
+        }
+      }
+
+      
+
+      $(document).ready(function () {
+        $("#firstThreeChars").click(function (e) {
+          e.preventDefault();
+          removeModalContent();
+          addModalContent(1);
+          openModal();
+          $("span").click(() => closeModal());
+        });
+
+        $("#secondCharFromEnd").click(function (e) {
+          e.preventDefault();
+          removeModalContent();
+          openModal();
+          addModalContent(2);
+          $("span").click(() => closeModal());
+        });
+
+        $("#lastFourChars").click(function (e) {
+          e.preventDefault();
+          removeModalContent();
+          openModal();
+          addModalContent(3);
+          $("span").click(() => closeModal());
+        });
+
+        $("#allLowerCase").click(function (e) {
+          e.preventDefault();
+          removeModalContent();
+          openModal();
+          addModalContent(4);
+          $("span").click(() => closeModal());
+        });
+
+        $("#allUpperCase").click(function (e) {
+          e.preventDefault();
+          removeModalContent();
+          openModal();
+          addModalContent(5);
+          $("span").click(() => closeModal());
+        });
+
+        $("#lowerAndUpperCase").click(function (e) {
+          e.preventDefault();
+          removeModalContent();
+          openModal();
+          addModalContent(6);
+          $("span").click(() => closeModal());
+        });
+
+        $("#whitoutSpace").click(function (e) {
+          e.preventDefault();
+          removeModalContent();
+          openModal();
+          addModalContent(7);
+          $("span").click(() => closeModal());
+        });
+
+        $("#whitoutVowels").click(function (e) {
+          e.preventDefault();
+          removeModalContent();
+          openModal();
+          addModalContent(8);
+          $("span").click(() => closeModal());
+        });
+
+        $("#reversedWords").click(function (e) {
+          e.preventDefault();
+          removeModalContent();
+          openModal();
+          addModalContent(9);
+          $("span").click(() => closeModal());
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <a href="index.html" style="text-decoration: none"><i >&larr;</i></a>
+    <div class="container">
+      <h2>Zadanie 18</h2>
+      <p>
+        Napisz konwerter tekstu – dodaj pole pozwalające na pisanie
+        kilkulinijkowego tekstu. Następnie dodaj przyciski odpalające poniższe
+        funkcje (każdy wynik ma zostać wyświetlony jako modal z przyciskiem do
+        jego zamknięcia):
+      </p>
+      <div class="content">
+        <form>
+        <textarea id="textInput" placeholder="Wpisz tekst" rows="5" cols="110" ></textarea>
+       
+      </form>
+      </div>
+      <div class="buttons">
+        <button id="firstThreeChars">First three chars</button>
+        <button id="secondCharFromEnd">Second char from end</button>
+        <button id="lastFourChars">Last four chars</button>
+        <button id="allLowerCase">All lower case</button>
+        <button id="allUpperCase">All upper case</button>
+        <button id="lowerAndUpperCase">Lower and upper case</button>
+        <button id="whitoutSpace">Whitout Space</button>
+        <button id="whitoutVowels">Whitout vowels</button>
+        <button id="reversedWords">Reversed words</button>
+      </div>
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close">X</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+* {
+    margin: 0px;
+    padding: 0%;
+    font-family: noto sans;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Nagłówek  */
+header {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 10px;
+    padding-left: 10px;
+    background: #fcb9cb;
+    color: #7a71fd;
+    padding-bottom: 15%;
+}
+
+/* autorzy czyli napisy klaudia jedrzej bartek */
+.authors {
+    font-size: 60px;
+    font-weight: lighter;
+    margin-bottom: 20%;
+}
+
+/* jedrzej  */
+.auth-first {
+    text-align: left;
+}
+
+
+/* klaudia  */
+.auth-second {
+    text-align: center;
+}
+
+/* bartok  */
+.auth-third {
+    text-align: right;
+}
+
+.auth-first:hover:after, .auth-second:hover:after, .auth-third:hover:after {
+    content: attr(data-hover);
+    font-size: 60px;
+}
+
+/* tytul PROJEKT  */
+.title h1 {
+    font-size: 20vmin;
+}
+
+.title h1:hover {
+    font-size: 0;
+}
+
+.title h1:hover:after {
+    content: attr(data-hover);
+    font-size: 20vmin;
+}
+
+/* cały div u jedrzeja z zadaniami  */
+.first-auth-content, .second-auth-content, .third-auth-content {
+    padding-left: 100px;
+    padding-right: 100px;
+    background: #7a71fd;
+    min-height: 100vh;
+    padding-bottom: 10%;
+}
+
+/* tytul jedrzej zarzycki  */
+.first-auth-content h2, .second-auth-content h2, .third-auth-content h2 {
+    text-align: center;
+    color: #fcb9cb;
+    font-size: 15vmin;
+    padding-bottom: 10%;
+    text-shadow: -5px 5px 0px #fcb9cb, -10px 10px 0px white, -15px 15px 0px #fcb9cb;
+}
+
+/* 3 box z zadaniami */
+.row {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+/* jeden taki box  */
+.box {
+    margin: 0px 20px;
+    width: 200px;
+    height: 200px;
+    background-color: #ecacbe;
+    border-color: #fcb9cb;
+    color: white;
+    border-width: 10px;
+    border-style: outset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    transition: 1s;
+}
+
+/* napis w boxie  */
+.box p {
+    line-height: normal;
+    vertical-align: middle;
+}
+
+/* gdy najade na box myszka  */
+.box:hover {
+    transform: scale(1.3);
+    background: #fcb9cb;
+    color: #7a71fd;
+    z-index: 1;
+
+}
+
+

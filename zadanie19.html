@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="zadania.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        let programmingLanguage = ["JavaScript", "Java", "C#", "GO", "Python"];
+
+        const clearResult = (options) => {
+          switch(options){
+            case 1:
+            $(".programming-language").remove()
+            break;
+            case 2:
+            $(".numberOfProgrammingLanguage p").remove();
+            break;
+          }
+        }
+
+        const findIndex = (value) => {
+          let arr = programmingLanguage.map(name => name.toLowerCase());
+          let index = arr.indexOf(value);
+          return programmingLanguage[index];
+        }
+
+        const checkUnique = (language) => {
+          for(let i = 0; i < programmingLanguage.length; i++){
+              if(language.toLowerCase() === programmingLanguage[i].toLocaleLowerCase()){return false};
+          }
+          return true;
+        }
+
+        const checkInput = (language) => {
+          let pattern = new RegExp('^[a-zA-Z0-9._#]+$');
+          if(pattern.test(language) == false) return false;
+          if(language.length <= 1) return false;
+          else return true;
+        }
+
+        const numberOfProgrammingLanguage = () => {
+          $(".numberOfProgrammingLanguage").append("<p> Liczba jezyków programowania: " +programmingLanguage.length + "</p>")
+        }
+
+        const sortASC = () => {
+            
+            let ascList = programmingLanguage.map(name => name.toLowerCase());
+            ascList = ascList.sort();
+            for(let i = 0; i < ascList.length; i++) {
+                $(".result").append('<div class="programming-language" id="'+ascList[i]+'">' +findIndex(ascList[i])+ '</div>')
+            }
+          }
+
+      const sortDESC = () => {
+            let descList = programmingLanguage.map(name => name.toLowerCase());
+            console.log(descList);
+             descList = descList.sort().reverse();
+            for(let i = 0; i < descList.length; i++) {
+                $(".result").append('<div class="programming-language" id="'+descList[i]+'">' +findIndex(descList[i])+ '</div>')
+            }
+          }
+
+          const addLanguage = () => {
+            let language = $("#textInput").val();
+            if(checkInput(language) === false) {alert("Podano zla wartosc!"); return false;}  
+            if(checkUnique(language) === false){alert("Wartosc nie jest unikatowa!"); return false;}
+            programmingLanguage.push(language);
+            $(".result").append('<div class="programming-language" id="'+language.toLowerCase()+'">' +language+ '</div>')
+          }
+
+          const deleteLanguage = () => {
+              let language = $("#textInput").val();
+              let index = programmingLanguage.indexOf(language.toLowerCase())
+              for(let i = 0; i < programmingLanguage.length; i++){
+                if(language.toLowerCase() == programmingLanguage[i].toLowerCase()){
+                  programmingLanguage.splice(i, 1);
+                  $(`#${language.toLowerCase()}`).remove();
+                  return true;
+                }
+              }
+          }
+
+        $(document).ready(function() {
+          
+          numberOfProgrammingLanguage();
+          
+          $("#searchASC").click(function(e) {
+                e.preventDefault();
+                clearResult(1);
+                sortASC();
+            })
+
+            $("#searchDESC").click(function(e) {
+                e.preventDefault();
+                clearResult(1);
+                sortDESC();
+            })
+
+            $("#add").click(function(e) {
+                e.preventDefault();
+                clearResult(2);
+                addLanguage();
+                numberOfProgrammingLanguage();
+            })
+
+            $("#delete").click(function(e) {
+                e.preventDefault();
+                deleteLanguage();
+                clearResult(2);
+                numberOfProgrammingLanguage();
+            })
+
+        })
+    </script>
+  </head>
+  <body>
+    <a href="index.html" style="text-decoration: none"><i>&larr;</i></a>
+    <div class="container">
+      <h2>Zadanie 19</h2>
+      <p>
+        Stwórz okrągłe elementy zawierające w sobie nazwy języków programowania
+        (co najmniej 5). Dodaj pole wyświetlające ilość wyświetlanych języków
+        programowania (wartość ta ma się aktualizować). Następnie dodaj
+        przyciski (i pola) umożliwiające: dodanie języka programowania
+        (nazwymają być unikalne), usunięcie języka programowania (po nazwie)
+        sortowanie wyświetlanych elementów po nazwie rosnąco i malejąco.
+      </p>
+      <div class="numberOfProgrammingLanguage"></div>
+      <div class="content">
+       
+        <form>
+         
+          <input type="text" id="textInput" placeholder="Podaj nazwe" />
+          <button id="searchASC">Szukaj (rosnąco)</button>
+          <button id="searchDESC">Szukaj (malejąco)</button>
+          <button id="add">Dodaj</button>
+          <button id="delete">Usun</button>
+        </form>
+      </div>
+      <div class="result">
+        <div class="programming-language" id="javascript">JavaScript</div>
+        <div class="programming-language" id="java">Java</div>
+        <div class="programming-language" id="c#">Ruby</div>
+        <div class="programming-language" id="go">Go</div>
+        <div class="programming-language" id="python">Python</div>
+      </div>
+    </div>
+  </body>
+</html>
